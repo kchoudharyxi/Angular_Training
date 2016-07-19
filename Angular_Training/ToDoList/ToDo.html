@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To do list</title>
+    <link rel="stylesheet" href="ToDo.css">
+</head>
+<body>
+<form>
+    <label>
+        <input id="new-task-input" type="text" placeholder="Take a note..."  onkeypress="handle(event)">
+    </label>
+    <button class="button" type="button" id="add-task-button">Add Task</button>
+</form>
+<script>
+    function handle(e){
+        if(e.keyCode === 13){
+            document.getElementById("add-task-button").click();
+        }
+        return false;
+    }
+</script>
+<ul id="ToDo-container">
+</ul>
+
+<script type="text/template" id="list-item-template">
+    <li class="task">
+        <label>
+            <input class="checkbox" type="checkbox">
+            <span class="task-name"><!-- TASK_NAME --></span>
+        </label>
+    </li>
+</script>
+
+<script src="ToDo.js"></script>
+</body>
+</html>
