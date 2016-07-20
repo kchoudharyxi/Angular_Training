@@ -30,7 +30,7 @@ body {
     line-height: 2.4em;
     border: groove;
     border-bottom: 1px solid #888;
-    margin: 0px 12px;
+    margin: 0 12px;
 }
 
 #new-task-input:focus {
