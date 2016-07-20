@@ -1,0 +1,100 @@
+	<html>
+	<head>
+	<style type="text/css">
+	#box{
+		position:relative;
+		background-color: white;
+	 	align-content: center;
+		height: 8%;
+		width:40%;
+		border: 2px solid grey; 
+		left: 30%;
+		top:10%;
+		}
+	</style>
+	<script>
+
+
+		var checkid=0;
+
+		var count;
+	    function add(){
+	
+		var textWritten=document.getElementById("box").value;
+		if(textWritten==""){
+			alert("make entry");
+			}
+		else{
+		
+		document.getElementById("box").value = "";
+		 				var check=document.createElement("input");
+				check.type='checkbox';
+				check.id=checkid;
+					checkid++;
+				demos.appendChild(check);
+				demos.appendChild(document.createTextNode(textWritten))	;
+				
+				document.body.appendChild(demos);
+						document.getElementById(check.id).addEventListener("click",taskCompleted);				
+			
+			}
+		}
+		function completed(){ 			
+			for(count=0;count<checkid;count++)
+			{ 	
+
+		
+				if(document.getElementById(count).checked){
+				var selectedCheckBox=document.getElementById(count);
+				//count.style.text-decoration="line-through";
+				var elem=document.createElement("strike");
+				var text1=document.getElementById(count).nextSibling;
+				elem.appendChild(text1);
+				
+					
+						demos.appendChild(selectedCheckBox);
+						demos.appendChild(elem);
+						//demos.style.text-decoration="line-through";
+				document.body.appendChild(demos);
+
+				if(document.getElementById(count).unchecked){
+	var unselectedCheckBox=document.getElementById(count);
+				
+				var text1=document.getElementById(count).nextSibling;
+							
+						demos.appendChild(unselectedCheckBox);
+						demos.appendChild(text1);
+						
+				document.body.appendChild(demos);
+				}
+				
+			}
+	
+		}
+	}
+		function taskCompleted(){
+					
+			for(count=0;count<checkid;count++)
+			{ 	 if(document.getElementById(count).checked)
+					 completed();
+				
+			}
+		}
+		/*function new(){
+			var newDiv=document.createElement("div");
+			var x=add();
+			div.appendChild(x);
+				document.body.appendChild(newDiv);
+
+		}*/
+
+	</script>
+	</head
+	<body bgcolor="#D3D3D3">
+	
+	<input   id="box"  type="text" name="input" placeholder="Take a note..."  top: "40%" onKeyDown="if(event.keyCode==13) add();">	
+	
+		<div id="demos"></div>
+	<!-- 	<button id="btn" onclick="new()">New</button> -->
+	</body>
+	</html>
